@@ -1,0 +1,41 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "res/xml/config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"PDFService\"><param name=\"android-package\" value=\"com.pdf.generator.PDFGenerator\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-pdf-generator": {
+      "PACKAGE_NAME": "br.Guilherme.Tomadeiro"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "cordova-pdf-generator.pdf",
+      "file": "plugins/cordova-pdf-generator/www/pdf.js",
+      "pluginId": "cordova-pdf-generator",
+      "clobbers": [
+        "cordova.plugins.pdf",
+        "pugin.pdf",
+        "pdf"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-pdf-generator": "2.1.1"
+  }
+}

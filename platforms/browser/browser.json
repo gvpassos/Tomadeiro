@@ -1,0 +1,30 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-pdf-generator": {
+      "PACKAGE_NAME": "br.Guilherme.Tomadeiro"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "file": "plugins/cordova-pdf-generator/www/pdf.js",
+      "id": "cordova-pdf-generator.pdf",
+      "pluginId": "cordova-pdf-generator",
+      "clobbers": [
+        "cordova.plugins.pdf",
+        "pugin.pdf",
+        "pdf"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-pdf-generator": "2.1.1"
+  }
+}

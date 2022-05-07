@@ -1,0 +1,320 @@
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:12px;
+    height:100vh;
+    margin:0px;
+    padding:0px;
+    /* Padding to avoid the "unsafe" areas behind notches in the screen */
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    /*text-transform:uppercase;*/
+    width:100%;
+}
+
+/*barra de navegacao*/
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 300px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+/*Botao flutuante*/
+.fab{
+  position: fixed;
+  bottom:15vh;
+  right:10vw;
+}
+
+.fab button{
+  cursor: pointer;
+  width: 14vw;
+  height:14vw;
+  border-radius: 14vw;
+  background-color: #a7a7a7;
+  border: none;
+  box-shadow: 0 1px 5px rgba(0,0,0,.4);
+  font-size: 24px;
+  color: white;
+
+  -webkit-transition: .2s ease-out;
+  -moz-transition: .2s ease-out;
+  transition: .2s ease-out;
+}
+
+.fab button:focus{
+  outline: none;
+}
+
+.fab button.main{
+  position: absolute;
+  width: 16vw;
+  height: 16vw;
+  border-radius: 16vw;
+  background-color: #333;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+}
+
+.fab button.main:before{
+  content: '+';
+}
+
+.fab ul{
+  position:absolute;
+  bottom: -50vh;
+  right: 0;
+  padding:0;
+  margin:0;
+  list-style:none;
+  z-index:10;
+  display: block;
+  -webkit-transition: .2s ease-out;
+  -moz-transition: .2s ease-out;
+  transition: .2s ease-out;
+}
+
+.fab ul li{
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  margin-bottom: -10%;
+  opacity: 0;
+
+  -webkit-transition: .3s ease-out;
+  -moz-transition: .3s ease-out;
+  transition: .3s ease-out;
+}
+
+.fab ul li label{
+  margin-right:10px;
+  white-space: nowrap;
+  display: block;
+  margin-top: 10px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  border-radius:3px;
+  height: 3vh;
+  width: 25vw;
+  text-align: center;
+  font-size: 2vh;
+  pointer-events: none;
+
+  -webkit-transition: .2s ease-out;
+  -moz-transition: .2s ease-out;
+  transition: .2s ease-out;
+}
+
+.fab.show button.main{
+  outline: none;
+  background-color: #777;
+  box-shadow: 0 3px 8px rgba(0,0,0,.5);
+ }
+
+
+.fab.show button.main:before{
+  content: '↑';
+}
+
+.fab.show button.main + ul{
+  bottom: 5vh;
+  right:5vw;
+}
+
+.fab.show button.main + ul li{
+  margin-bottom: 3vh;
+  opacity: 1;
+  left:10px;
+}
+
+/* Meu CSS*/
+.mostrar{
+  display: block;
+}
+.esconder{
+  display: none;
+}
+.disSelect{
+  margin-left: 5vw;
+  margin-top: 2vh;
+  width: 24vw;
+  height: 8vh;
+  text-align:center;
+  border:1px solid gray;
+  border-radius: 3vw;
+  font-size: 15px;
+}
+.fiosSelect{
+  margin-left: 3vw;
+  margin-top: 2vh;
+  width: 18vw;
+  height: 8vh;
+  text-align:center;
+  border:1px solid gray;
+  border-radius: 3vw;
+  font-size: 15px;
+}
+.fiosRadio{
+  margin-top: 2vh;
+  margin-right: 5vh;
+  max-width: 18vw;
+  min-width: 16vw;
+  height: 8vh;
+  text-align:left;
+  vertical-align: middle;
+  line-height: 4vh;
+  float:right;
+}
+li{
+    margin-top: 3vw;
+}
+#listagemDisjuntores{
+  height: 35vh;
+  border: 1px solid black;
+  margin-top: 2vh;
+  margin-left: 5vw;
+  margin-right: 9vw;
+  overflow-x: visible;
+  font-size: 3vw;
+}
+#listagemFios{
+  height: 35vh;
+  border: 1px solid black;
+  margin-top: 2vh;
+  margin-left: 5vw;
+  margin-right: 9vw;
+  overflow-x: visible;
+  font-size: 3vw;
+}
+label{
+font-weight: bold;
+
+}
+.caixinha{
+  float:left;
+  border:5px solid black;
+  width:50vw;
+  height:43vh;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 60vh;
+  margin-top: 2vw;
+  margin-left: 2vh;
+}
+.caixinha div{
+  width:50vw;
+  height:13vh;
+  margin-bottom: 2vh;
+  text-align: center;
+  font-size: 10px;
+  border: 1px solid black;
+  vertical-align: middle;
+  line-height: 15vh;
+}
+#btnGrid {height: 55vh;border:1px solid black}
+#btnGrid button{
+  width:35vw;
+  height:8vh;
+  font-size: 15px;
+  margin-left:2vw;
+  margin-top:1vh;
+  border:1px solid gray;
+  border-radius: 3vw;
+}
+
+.editadora{
+  position: fixed;
+  top:3vh;
+  left:3vw;
+  bottom:3vh;
+  right: 3vw;
+  z-index: 150;
+  border: 2vh solid gray;
+  background-color:#E4E4E4;
+  background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);
+  text-align: center;
+  overflow: auto;
+}
+
+.editadoratable{
+   border: 1px solid #4F4F4F;
+   width: 80vw;
+   text-align: center;
+   overflow: auto;
+
+}
+.editadoratable td, .editadoratable tr {
+  border: 1px solid #4F4F4F;
+  overflow: auto;
+
+}
+#footer {
+  margin-top: 2vh;
+  text-align:center;
+  width:(100vw-2px);
+  /*border: 1px solid red;*/
+  max-height:10vh;
+}
+#footer button{
+  left:2px;
+  width:25vw;
+  height:8vh;
+  font-size: 15px;
+  margin-left:2vw;
+  margin-top:1vh;
+  border:2px solid #AAA;
+  border-radius: 3vw;
+}

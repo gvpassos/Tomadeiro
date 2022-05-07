@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=yes">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+        <title>Tomadeiro</title>
+
+    </head>
+    <body>
+      <div  class="topnav" id='topnav'>
+        <a name="Tomadas" onclick="mudarFuncao('ListasTomadas')"> Tomadas </a>
+        <a name="Disjuntores" onclick="mudarFuncao('ListaDisjuntores')"> Disjuntores </a>
+        <a name="Lista" onclick="mudarFuncao('ListaFios')"> Fios </a>
+
+        <a href="javascript:void(0);" class="icon" onclick="mostrar()">Opções</a>
+      </div>
+<div id="ListasTomadas" class="esconder">
+        <div id='caixinha' class="caixinha"></div>
+
+        <div id='btnGrid'>
+          <button type="button" id="tomada" onclick="Pontos.AdicionarModulo('tomada')">Tomada</button>
+          <button type="button" id="interruptor" onclick="Pontos.AdicionarModulo('interruptor')">Interruptor</button>
+          <button type="button" id="paralelo" onclick="Pontos.AdicionarModulo('paralelo')">Paralelo</button>
+          <button type="button" id="tomada20A" onclick="Pontos.AdicionarModulo('tomada20A')">Tomada20A</button>
+          <button type="button" id="tampacega" onclick="Pontos.AdicionarModulo('tampacega')">Tampa cega</button>
+        </div>
+        <div id='footer'>
+          <button name="Proximo" onclick="Pontos.ProximoPonto()">Proximo</button>
+          <button name="limpar" onclick="imprimirConteudo">Gerar Tabela</button>
+          <button name="Lista" onclick="Pontos.EditarPontos('ListaPronta')">Editar</button>
+        </div>
+        <div id="ultimoAdicionada"></div>
+</div>
+<div id="ListaDisjuntores" class="esconder">
+  <select class="disSelect" id="polar">
+    <option value="bipolar">BIPOLAR</option>
+    <option value="monopolar">MONOPOLAR</option>
+  </select>
+  <select class="disSelect" id="amperes">
+    <option value="16">16 Amperes</option>
+    <option value="20">20 Amperes</option>
+    <option value="25">25 Amperes</option>
+    <option value="32">32 Amperes</option>
+    <option value="40">40 Amperes</option>
+    <option value="63">63 Amperes</option>
+  </select>
+  <input class="disSelect" type="number" id="quantDis" placeholder="1" value="1"></input>
+  <button type="button" class="disSelect" style="width:86vw" onclick="Disjuntores.Adicionar(document.getElementById('polar'),document.getElementById('amperes'),document.getElementById('quantDis'))">Adicionar</button>
+
+  <ul id="listagemDisjuntores">
+
+  </ul>
+  <button type="button" class="disSelect" onclick="imprimirConteudo()">Gerar Tabela</button>
+  <button type="button"  class="disSelect">Deletar Lista</button>
+</div>
+<div id="ListaFios" class="esconder">
+  <select class="fiosSelect" id="secao">
+    <option value="1,5">1,5 mm</option>
+    <option value="2,5">2,5 mm</option>
+    <option value="4">4 mm</option>
+    <option value="6">6 mm</option>
+    <option value="10">10 mm</option>
+    <option value="16">16 mm</option>
+    <option value="25">25 mm</option>
+    <option value="35">35 mm</option>
+  </select>
+  <select class="fiosSelect" id="cor">
+    <option value="branco">Branco</option>
+    <option value="azul">Azul</option>
+    <option value="vermelho">Vermelho</option>
+    <option value="preto">Preto</option>
+    <option value="verde">verde</option>
+    <option value="amarelo">Amarelo</option>
+  </select>
+  <input class="fiosSelect" type="number" id="quantFios" placeholder="1" value="1"></input>
+    <div class="fiosRadio">
+      <input id='rolo' type="radio" name="tipoQuant" value="rolo" checked="checked">
+      <label for="rolo">Rolo</label><br>
+      <input type="radio" id="metros" name="tipoQuant" value="metros">
+      <label for="metros">Metros</label>
+    </div>
+  <button type="button" class="disSelect" style="width:86vw" onclick="Fios.Adicionar(document.getElementById('secao'),document.getElementById('cor'),document.getElementById('quantFios'),document.getElementsByName('tipoQuant'))">Adicionar</button>
+
+  <ul id="listagemFios">
+
+  </ul>
+  <button type="button" class="disSelect" onclick="imprimirConteudo()">Gerar Tabela</button>
+  <button type="button"  class="disSelect">Deletar Lista</button>
+</div>
+
+      <script src="cordova.js"></script>
+      <script src="js/index.js"></script>
+      <script src="js/localdata.js"></script>
+      <script>
+      function toggleFAB(fab){
+      	if(document.querySelector(fab).classList.contains('show')){
+        	document.querySelector(fab).classList.remove('show');
+        }else{
+        	document.querySelector(fab).classList.add('show');
+        }
+      }
+
+
+      </script>
+
+    </body>
+
+
+</html>
