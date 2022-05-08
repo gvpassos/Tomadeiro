@@ -142,6 +142,7 @@ var Pontos = {
            if(!Pontos.ListaPronta.length){
              console.log(Pontos.ListaPronta.length,"entrou")
              Pontos.ListaPronta.push({nome:item.nome,quant:1});
+             document.getElementById("ultimoAdicionada").innerHTML = item.nome +": 1";
              return false;
            }
            let naoachei = Pontos.ListaPronta.every(function(modulo,indice) {
@@ -149,6 +150,7 @@ var Pontos = {
                              if(modulo.nome === item.nome){
                                console.log("achou");
                                modulo.quant++;
+                               document.getElementById("ultimoAdicionada").innerHTML = modulo.nome +": "+ modulo.quant;
                                return false;
                              }
                              return true;
@@ -156,6 +158,7 @@ var Pontos = {
            if(naoachei){
              console.log('nao achou');
              Pontos.ListaPronta.push({nome:item.nome,quant:1});
+             document.getElementById("ultimoAdicionada").innerHTML =  Pontos.ListaPronta[Pontos.ListaPronta.length-1].nome +": "+  Pontos.ListaPronta[Pontos.ListaPronta.length-1].quant;
            }
            return false;
        }
@@ -179,12 +182,13 @@ var Pontos = {
          });
          if (naoNovaComb) {
              this.ListaPronta.push({nome:nomePonto,quant:1});
+             document.getElementById("ultimoAdicionada").innerHTML = this.ListaPronta[this.ListaPronta.length-1].nome +": "+this.ListaPronta[this.ListaPronta.length-1].quant;
          }
      }
    caixinha.innerHTML = "";
    this.PontoAdicionado = [];
    //console.log(this.ListaPronta);
-   document.getElementById("ultimoAdicionada").innerHTML = this.ListaPronta[this.ListaPronta.length-1].nome +": "+this.ListaPronta[this.ListaPronta.length-1].quant;
+
    //localStorage.setItem("ListaPronta",JSON.stringify(this.ListaPronta));
  },
  LimparPonto: function(){
