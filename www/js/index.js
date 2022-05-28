@@ -32,6 +32,7 @@ function imprimirConteudo(){
               "</style>";
 
   let tabelaDis ="",tabelaTom = "",tabelaFios = "";
+  
   if(Disjuntores.ListaPronta.length){
     if(confirm("Imprimir tabela de Disjuntores")){
       tabelaDis = "<table class='paleBlueRows'><thead><tr><th scope='col'>Disjuntores</th><th scope='col'>Quants</th></tr></thead>"+
