@@ -49,7 +49,7 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 350px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
     float: right;
@@ -57,7 +57,7 @@ body {
   }
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 350px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -309,19 +309,17 @@ font-weight: bold;
 }
 
 #footer {
-  margin-top: 2vh;
+  margin-top: 5vh;
   text-align:center;
-  width:(100vw-2px);
+  width:100vw;
   /*border: 1px solid red;*/
-  max-height:10vh;
+
 }
 #footer button{
-  left:2px;
-  width:25vw;
-  height:8vh;
+  width:28vw;
+  height:10vh;
   font-size: 15px;
   margin-left:2vw;
-  margin-top:1vh;
   border:2px solid #AAA;
   border-radius: 3vw;
 }
